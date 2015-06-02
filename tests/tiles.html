@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie8"><![endif]-->
+<!--[if IE 9]><html class="ie9"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html>
+<!--<![endif]-->
+  <head>
+    <title>Tiles - PatternFly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../dist/img/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../dist/img/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../dist/img/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../dist/img/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../dist/img/apple-touch-icon-57-precomposed.png">
+    <link href="../dist/css/patternfly.min.css" rel="stylesheet" media="screen, print">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../components/html5shiv/dist/html5shiv.min.js"></script>
+    <script src="../components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+    <!-- IE8 requires jQuery and Bootstrap JS to load in head to prevent rendering bugs -->
+    <!-- IE8 requires jQuery v1.x -->
+    <script src="../components/jquery/dist/jquery.min.js"></script>
+    <script src="../components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../components/c3/c3.min.js"></script>
+    <script src="../components/d3/d3.min.js"></script>
+    <script src="../components/matchHeight/jquery.matchHeight-min.js"></script>
+    <script src="../dist/js/patternfly.min.js"></script>
+  </head>
+  <body class="tiles-pf">
+    <nav class="navbar navbar-default navbar-pf" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+          <img src="../dist/img/brand.svg" alt="PatternFly Enterprise Application" />
+        </a>
+      </div>
+      <div class="collapse navbar-collapse navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-utility">
+          <li>
+            <a href="#">Status</a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <span class="pficon pficon-user"></span>
+              Brian Johnson <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#">Link</a>
+              </li>
+              <li>
+                <a href="#">Another link</a>
+              </li>
+              <li>
+                <a href="#">Something else here</a>
+              </li>
+              <li class="divider"></li>
+              <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">More options</a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#">Link</a>
+                  </li>
+                  <li>
+                    <a href="#">Another link</a>
+                  </li>
+                  <li>
+                    <a href="#">Something else here</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Nav header</li>
+                  <li>
+                    <a href="#">Separated link</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">One more separated link</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">One more separated link</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-primary">
+          <li>
+            <a href="basic.html">Basic</a>
+          </li>
+          <li>
+            <a href="bootstrap-treeview-2.html">Tree View</a>
+          </li>
+          <li>
+            <a href="dashboard.html">Dashboard</a>
+          </li>
+          <li>
+            <a href="form.html">Form</a>
+          </li>
+          <li>
+            <a href="tab.html">Tab</a>
+          </li>
+          <li>
+            <a href="typography-2.html">Typography</a>
+          </li>
+          <li class="active">
+            <a href="tiles.html" class="active">Tiles</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid container-tiles-pf">
+      <div class="row row-tile-pf">
+        <div class="col-xs-6 col-sm-4 col-md-2">
+          <div class="tile-pf tile-pf-accented tile-pf-aggregate-status">
+            <h2 class="tile-pf-title"><span class="fa fa-shield"></span> <span class="tile-pf-aggregate-status-count">0</span> Ipsum</h2>
+            <div class="tile-pf-body">
+              <p class="tile-pf-aggregate-status-notifications">
+                <span class="tile-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-add-circle-o"></span></a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-2">
+          <div class="tile-pf tile-pf-accented tile-pf-aggregate-status">
+            <h2 class="tile-pf-title"><span class="fa fa-shield"></span> <span class="tile-pf-aggregate-status-count">20</span> Amet</h2>
+            <div class="tile-pf-body">
+              <p class="tile-pf-aggregate-status-notifications">
+                <span class="tile-pf-aggregate-status-notification"><span class="pficon pficon-error-circle-o"></span> 1</span>
+                <span class="tile-pf-aggregate-status-notification"><span class="pficon pficon-warning-triangle-o"></span> 1</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-2">
+          <div class="tile-pf tile-pf-accented tile-pf-aggregate-status">
+            <h2 class="tile-pf-title"><span class="fa fa-shield"></span> <span class="tile-pf-aggregate-status-count">9</span> Adipiscing</h2>
+            <div class="tile-pf-body">
+              <p class="tile-pf-aggregate-status-notifications">
+                <span class="tile-pf-aggregate-status-notification"><span class="pficon pficon-ok"></span></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-2">
+            <a href="#">
+          <div class="tile-pf tile-pf-accented tile-pf-aggregate-status">
+            <h2 class="tile-pf-title"><span class="fa fa-shield"></span> <span class="tile-pf-aggregate-status-count">12</span> Lorem</h2>
+            <div class="tile-pf-body">
+              <p class="tile-pf-aggregate-status-notifications">
+                <span class="tile-pf-aggregate-status-notification"><span class="pficon pficon-error-circle-o"></span> 1</span>
+              </p>
+            </div>
+          </div>
+            </a>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-2">
+          <div class="tile-pf tile-pf-accented tile-pf-aggregate-status">
+            <h2 class="tile-pf-title"><span class="fa fa-shield"></span> <span class="tile-pf-aggregate-status-count">6</span> Dolar Sit</h2>
+            <div class="tile-pf-body">
+              <p class="tile-pf-aggregate-status-notifications">
+                <span class="tile-pf-aggregate-status-notification"><span class="pficon pficon-error-circle-o"></span> 1</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-2">
+          <div class="tile-pf tile-pf-accented tile-pf-aggregate-status">
+            <h2 class="tile-pf-title"><span class="fa fa-shield"></span> <span class="tile-pf-aggregate-status-count">199</span> Consectetur</h2>
+            <div class="tile-pf-body">
+              <p class="tile-pf-aggregate-status-notifications">
+                <span class="tile-pf-aggregate-status-notification"><span class="pficon pficon-error-circle-o"></span> 1</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div><!-- /row -->
+      <div class="row row-tile-pf">
+        <div class="col-xs-6 col-sm-4 col-md-4">
+          <div class="tile-pf">
+            <div class="tile-pf-heading">
+              <h2 class="tile-pf-title">IOPS Workload</h2>
+            </div>
+            <div class="tile-pf-body">
+              <p>Last 30 days</p>
+              <div id="iops"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-4">
+          <div class="tile-pf">
+            <div class="tile-pf-heading">
+              <h2 class="tile-pf-title">Container Configuration Changes</h2>
+            </div>
+            <div class="tile-pf-body">
+              <p>Last 30 days</p>
+              <div class="row">
+                <div class="col-sm-8 col-md-8">
+                  <div id="ccc"></div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                  <p>text here</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-4">
+          <div class="tile-pf">
+            <div class="tile-pf-heading">
+              <h2 class="tile-pf-title"># Title</h2>
+            </div>
+            <div class="tile-pf-body">
+              <p><span class="pficon pficon-ok"></span> #</p>
+            </div>
+          </div>
+        </div>
+      </div><!-- /row -->
+      <div class="row row-tile-pf">
+        <div class="col-xs-6 col-sm-4 col-md-4">
+          <div class="tile-pf">
+            <h2 class="tile-pf-title">IOPS Workload</h2>
+            <div class="tile-pf-body">
+              <p>Last 30 days</p>
+              <div id="iops2"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-4">
+          <div class="tile-pf">
+            <h2 class="tile-pf-title">Container Configuration Changes</h2>
+            <div class="tile-pf-body">
+              <p>Last 30 days</p>
+              <div class="row">
+                <div class="col-sm-8 col-md-8">
+                  <div id="ccc2"></div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                  <p>text here</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-4">
+          <div class="tile-pf">
+            <h2 class="tile-pf-title"># Title</h2>
+            <div class="tile-pf-body">
+              <p><span class="pficon pficon-ok"></span> #</p>
+            </div>
+          </div>
+        </div>
+      </div><!-- /row -->
+      <div class="row row-tile-pf">
+        <div class="col-xs-6 col-sm-4 col-md-4">
+          <div class="tile-pf tile-pf-bleed-right">
+            <h2 class="tile-pf-title"># Title</h2>
+            <div class="tile-pf-body">
+              <p><span class="pficon pficon-ok"></span> #</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-4">
+          <div class="tile-pf tile-pf-bleed-right tile-pf-bleed-left">
+            <h2 class="tile-pf-title"># Title</h2>
+            <div class="tile-pf-body">
+              <p><span class="pficon pficon-ok"></span> #</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-4">
+          <div class="tile-pf tile-pf-bleed-left">
+            <h2 class="tile-pf-title"># Title </h2>
+            <div class="tile-pf-body">
+              <p><span class="pficon pficon-ok"></span> #</p>
+            </div>
+          </div>
+        </div>
+      </div><!-- /row -->
+      <div class="row row-tile-pf">
+        <div class="col-xs-6 col-sm-5 col-md-5">
+          <div class="tile-pf">
+            <h2 class="tile-pf-title"># Title</h2>
+            <div class="tile-pf-body">
+              <p><span class="pficon pficon-ok"></span> #</p>
+            </div>
+            <div class="tile-pf-footer">
+              <p><a href="#"><span class="pficon pficon-flag"></span>Link goes here</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-7 col-md-7">
+          <div class="tile-pf">
+            <h2 class="tile-pf-title"># Title</h2>
+            <div class="tile-pf-body">
+              <p><span class="pficon pficon-ok"></span> #</p>
+              <p><span class="pficon pficon-ok"></span> #</p>
+              <p><span class="pficon pficon-ok"></span> #</p>
+              <p><span class="pficon pficon-ok"></span> #</p>
+              <p><span class="pficon pficon-ok"></span> #</p>
+              <p><span class="pficon pficon-ok"></span> #</p>
+            </div>
+          </div>
+        </div>
+      </div><!-- /row -->
+      <div class="row row-tile-pf">
+        <div class="col-xs-4 col-sm-3 col-md-3">
+          <div class="tile-pf">
+            <div class="tile-pf-heading">
+              <h2 class="tile-pf-title"># Title</h2>
+            </div>
+            <div class="tile-pf-body">
+              <p><span class="pficon pficon-ok"></span> #</p>
+              <p><span class="pficon pficon-ok"></span> #</p>
+              <p><span class="pficon pficon-ok"></span> #</p>
+              <p><span class="pficon pficon-ok"></span> #</p>
+              <p><span class="pficon pficon-ok"></span> #</p>
+              <p><span class="pficon pficon-ok"></span> #</p>
+              <p><span class="pficon pficon-ok"></span> #</p>
+            </div>
+            <div class="tile-pf-footer">
+              <p><a href="#"><span class="pficon pficon-flag"></span>Link goes here</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-8 col-sm-9 col-md-9">
+          <div class="tile-pf">
+            <div class="tile-pf-heading">
+              <h2 class="tile-pf-title"># Title is very long so that it wraps to more than one line at nearly any and all resolutions even the ones that are really, really big</h2>
+            </div>
+            <div class="tile-pf-body">
+              <p><span class="pficon pficon-ok"></span> #</p>
+              <p><span class="pficon pficon-ok"></span> #</p>
+            </div>
+            <div class="tile-pf-footer">
+              <p><a href="#"><span class="pficon pficon-flag"></span>Link goes here</a></p>
+            </div>
+          </div>
+        </div>
+      </div><!-- /row -->
+      <div class="row row-tile-pf">
+        <div class="col-xs-6 col-sm-8 col-md-8">
+          <div class="tile-pf">
+            <div class="tile-pf-body">
+              <p><span class="pficon pficon-ok"></span> #</p>
+            </div>
+            <div class="tile-pf-footer">
+              <p><a href="#"><span class="pficon pficon-flag"></span>Link goes here</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-4">
+          <div class="tile-pf">
+            <div class="tile-pf-body">
+              <p><span class="pficon pficon-ok"></span> #</p>
+            </div>
+            <div class="tile-pf-footer">
+              <p><a href="#"><span class="pficon pficon-flag"></span>Link goes here</a></p>
+            </div>
+          </div>
+        </div>
+      </div><!-- /row -->
+      <div class="row row-tile-pf">
+        <div class="col-xs-6 col-sm-8 col-md-8">
+          <div class="tile-pf">
+            <div class="tile-pf-body">
+              <p><span class="pficon pficon-ok"></span> #</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-4">
+          <div class="tile-pf">
+            <div class="tile-pf-body">
+              <p><span class="pficon pficon-ok"></span> #</p>
+            </div>
+          </div>
+        </div>
+      </div><!-- /row -->
+    </div><!-- /container -->
+    <script>
+      $(function() {
+        // charts
+        var iops = c3.generate({
+          axis: {
+            x: {
+              show: false
+            },
+            y: {
+              show: false
+            }
+          },
+          bindto: '#iops',
+          color: {
+            pattern: ['#0088ce', '#00659c', '#3f9c35', '#ec7a08', '#cc0000']
+          },
+          data: {
+            columns: [
+              ['Less than one year remaining', 10, 14, 12, 20, 31, 27, 44, 36, 52, 55, 62, 68, 69, 88, 74, 88, 91],
+            ],
+            type: 'area'
+          },
+          legend: {
+            show: false
+          },
+          point: {
+            r: 1,
+            focus: {
+              expand: {
+                r: 4
+              }
+            }
+          },
+          size: {
+            height: 80
+          },
+          tooltip: {
+            // because a sparkline should only contain a single data column, the tooltip will only work for a single data column
+            contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+              for (i = 0; i < d.length; i++) {
+                return '<span class="c3-tooltip-sparkline">' + d[i].value + '%' + '</span>'
+              }
+            }
+          }
+        });
+        var ccc = c3.generate({
+          axis: {
+            x: {
+              show: false
+            },
+            y: {
+              show: false
+            }
+          },
+          bindto: '#ccc',
+          color: {
+            pattern: ['#0088ce', '#00659c', '#3f9c35', '#ec7a08', '#cc0000']
+          },
+          data: {
+            columns: [
+              ['Less than one year remaining', 30, 44, 40, 21, 38, 47, 80, 77, 81, 55, 67, 68, 74, 78, 64, 44, 20],
+            ],
+            type: 'area'
+          },
+          legend: {
+            show: false
+          },
+          point: {
+            r: 1,
+            focus: {
+              expand: {
+                r: 4
+              }
+            }
+          },
+          size: {
+            height: 80
+          },
+          tooltip: {
+            // because a sparkline should only contain a single data column, the tooltip will only work for a single data column
+            contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+              for (i = 0; i < d.length; i++) {
+                return '<span class="c3-tooltip-sparkline">' + d[i].value + '%' + '</span>'
+              }
+            }
+          }
+        });
+        var iops2 = c3.generate({
+          axis: {
+            x: {
+              show: false
+            },
+            y: {
+              show: false
+            }
+          },
+          bindto: '#iops2',
+          color: {
+            pattern: ['#0088ce', '#00659c', '#3f9c35', '#ec7a08', '#cc0000']
+          },
+          data: {
+            columns: [
+              ['Less than one year remaining', 10, 14, 12, 20, 31, 27, 44, 36, 52, 55, 62, 68, 69, 88, 74, 88, 91],
+            ],
+            type: 'area'
+          },
+          legend: {
+            show: false
+          },
+          point: {
+            r: 1,
+            focus: {
+              expand: {
+                r: 4
+              }
+            }
+          },
+          size: {
+            height: 80
+          },
+          tooltip: {
+            // because a sparkline should only contain a single data column, the tooltip will only work for a single data column
+            contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+              for (i = 0; i < d.length; i++) {
+                return '<span class="c3-tooltip-sparkline">' + d[i].value + '%' + '</span>'
+              }
+            }
+          }
+        });
+        var ccc2 = c3.generate({
+          axis: {
+            x: {
+              show: false
+            },
+            y: {
+              show: false
+            }
+          },
+          bindto: '#ccc2',
+          color: {
+            pattern: ['#0088ce', '#00659c', '#3f9c35', '#ec7a08', '#cc0000']
+          },
+          data: {
+            columns: [
+              ['Less than one year remaining', 30, 44, 40, 21, 38, 47, 80, 77, 81, 55, 67, 68, 74, 78, 64, 44, 20],
+            ],
+            type: 'area'
+          },
+          legend: {
+            show: false
+          },
+          point: {
+            r: 1,
+            focus: {
+              expand: {
+                r: 4
+              }
+            }
+          },
+          size: {
+            height: 80
+          },
+          tooltip: {
+            // because a sparkline should only contain a single data column, the tooltip will only work for a single data column
+            contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+              for (i = 0; i < d.length; i++) {
+                return '<span class="c3-tooltip-sparkline">' + d[i].value + '%' + '</span>'
+              }
+            }
+          }
+        });
+        // matchHeight the contents of each .tile-pf and then the .tile-pf itself
+        $(".row-tile-pf > [class*='col'] > .tile-pf .tile-pf-title").matchHeight();
+        $(".row-tile-pf > [class*='col'] > .tile-pf > .tile-pf-body").matchHeight();
+        $(".row-tile-pf > [class*='col'] > .tile-pf > .tile-pf-footer").matchHeight();
+        $(".row-tile-pf > [class*='col'] > .tile-pf").matchHeight();
+      });
+    </script>
+  </body>
+</html>

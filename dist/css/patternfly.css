@@ -11689,6 +11689,120 @@ td > .progress:first-child:last-child {
 .nav-tabs-pf .open > a:focus {
   background-color: transparent;
 }
+.container-tiles-pf {
+  margin-top: 20px;
+}
+.tile-pf {
+  background: #ffffff;
+  border-top: 2px solid transparent;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.175);
+  padding: 0 20px;
+  margin: 0 -10px 20px;
+}
+.tile-pf.tile-pf-accented {
+  border-top-color: #39a5dc;
+}
+.tile-pf.tile-pf-aggregate-status,
+.tile-pf.tile-pf-status {
+  text-align: center;
+  padding: 0 10px;
+}
+.tile-pf.tile-pf-status {
+  position: relative;
+}
+@media (min-width: 768px) {
+  .tile-pf.tile-pf-bleed-left {
+    margin-left: -20px;
+  }
+  .tile-pf.tile-pf-bleed-right {
+    border-right: 1px solid #d1d1d1;
+    margin-right: -20px;
+  }
+}
+.tile-pf-aggregate-status-notifications {
+  font-size: 24px;
+  font-weight: 300;
+}
+.tile-pf-aggregate-status-notifications .fa,
+.tile-pf-aggregate-status-notifications .pficon {
+  font-size: 18px;
+}
+.tile-pf-aggregate-status-notifications .tile-pf-aggregate-status-notification + .tile-pf-aggregate-status-notification {
+  border-left: 1px solid #d1d1d1;
+  margin-left: 5px;
+  padding-left: 10px;
+}
+.tile-pf-body {
+  margin: 20px 0;
+  padding: 0 0 20px;
+}
+.tile-pf-aggregate-status .tile-pf-body {
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+.tile-pf-body > *:last-child {
+  margin-bottom: 0;
+}
+.tile-pf-footer {
+  background-color: #fafafa;
+  border-top: 1px solid #d1d1d1;
+  margin: 0 -20px !important;
+  padding: 20px 20px 10px;
+}
+.tile-pf-footer a .fa,
+.tile-pf-footer a .pficon {
+  margin-right: 5px;
+}
+.tile-pf-heading {
+  border-bottom: 1px solid #d1d1d1;
+  margin: 0 -20px 20px;
+  padding: 0 20px 0;
+}
+.tile-pf-title {
+  font-size: 16px;
+  font-weight: 300;
+  margin: 20px 0;
+  padding: 0;
+}
+.tile-pf-aggregate-status .tile-pf-title {
+  font-size: 14px;
+  margin: 10px 0 0;
+}
+.tile-pf-aggregate-status .tile-pf-title .fa,
+.tile-pf-aggregate-status .tile-pf-title .pficon {
+  color: #72767b;
+  font-size: 16px;
+  margin-right: 5px;
+}
+.tile-pf-status .tile-pf-title {
+  font-size: 12px;
+  margin: 10px 0 0;
+  padding: 0 0 10px;
+}
+.tile-pf-status .tile-pf-title .fa,
+.tile-pf-status .tile-pf-title .pficon {
+  color: #72767b;
+  font-size: 28px;
+  position: absolute;
+  left: 10px;
+  margin-top: -14px;
+  top: 50%;
+}
+.tile-pf-title .tile-pf-aggregate-status-count,
+.tile-pf-title .tile-pf-status-count {
+  font-size: 16px;
+}
+.tile-pf-title .tile-pf-status-count {
+  display: block;
+}
+.tiles-pf {
+  background: #f5f5f5;
+}
+.row-tile-pf {
+  margin-left: -10px;
+  margin-right: -10px;
+}
 .tooltip {
   font-size: 12px;
 }
