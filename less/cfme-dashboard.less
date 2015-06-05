@@ -1,0 +1,49 @@
+//
+// CFME Dashboard
+// Note:  this is one-off CSS strictly for the
+// purpose of a proof-of concept and should not be
+// considered production-ready as it does not
+// address responsiveness, etc.
+// --------------------------------------------------
+
+.chart-radial {
+  margin: @grid-gutter-width/2 0;
+}
+
+.count-title {
+  margin-top: 0;
+}
+
+.count-utilization {
+  border-bottom: 1px solid @tile-pf-border-color;
+  font-size: @font-size-h2;
+  font-weight: 300;
+  padding: 0 0 @grid-gutter-width/4;
+  small {
+    color: inherit;
+    display: block;
+    font-size: @font-size-small;
+    font-weight: 300;
+  }
+}
+
+.pficon-kubernetes {
+  color: #326de6;
+}
+
+.pficon-openshift {
+  color: #da2430;
+}
+
+.tile-pf.tile-pf-aggregate-status {
+  min-height: 114px;
+}
+
+.row-tile-pf {
+  > [class*='col'] > .row > [class*='col'] > .tile-pf {
+    margin-bottom: @grid-gutter-width/4;
+  }
+  + .row-tile-pf {
+    margin-top: @grid-gutter-width/4;
+  }
+}

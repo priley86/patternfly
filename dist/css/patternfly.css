@@ -11837,3 +11837,36 @@ h2,
     margin-right: 20px;
   }
 }
+.chart-radial {
+  margin: 20px 0;
+}
+.count-title {
+  margin-top: 0;
+}
+.count-utilization {
+  border-bottom: 1px solid #d1d1d1;
+  font-size: 22px;
+  font-weight: 300;
+  padding: 0 0 10px;
+}
+.count-utilization small {
+  color: inherit;
+  display: block;
+  font-size: 11px;
+  font-weight: 300;
+}
+.pficon-kubernetes {
+  color: #326de6;
+}
+.pficon-openshift {
+  color: #da2430;
+}
+.tile-pf.tile-pf-aggregate-status {
+  min-height: 114px;
+}
+.row-tile-pf > [class*='col'] > .row > [class*='col'] > .tile-pf {
+  margin-bottom: 10px;
+}
+.row-tile-pf + .row-tile-pf {
+  margin-top: 10px;
+}
