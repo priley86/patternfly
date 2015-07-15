@@ -11911,9 +11911,6 @@ h2,
 .network-heatmap-body {
   border-left: 1px solid #d1d1d1;
 }
-.count-title {
-  margin-top: 0;
-}
 .count-utilization {
   border-bottom: 1px solid #d1d1d1;
   font-size: 22px;
@@ -11926,39 +11923,12 @@ h2,
   font-size: 11px;
   font-weight: 300;
 }
-.card-pf.card-pf-aggregate-status {
-  min-height: 114px;
-}
-.row-card-pf > [class*='col'] > .row > [class*='col'] > .card-pf {
-  margin-bottom: 10px;
-}
-.row-card-pf + .row-card-pf {
-  margin-top: 10px;
-}
-.card-pf-subtitle {
-  font-size: 12px;
-  font-weight: normal;
-  margin: 20px 0;
-  padding: 0;
-}
-.loading {
+.card-pf .loading {
   margin: 10px auto;
 }
-/** Overrides */
-.count-title {
-  font-weight: normal;
-}
-.count-utilization {
-  font-size: 26px;
-}
-.card-pf {
-  margin-bottom: 10px;
-}
-.card-pf-body {
-  padding-bottom: 0px;
-}
-.card-pf-heading {
-  margin-bottom: 0px;
+.card-pf .count-title {
+  font-weight: 300;
+  margin-top: 0;
 }
 .card-pf-status .card-pf-title {
   margin: 0;
@@ -11984,7 +11954,7 @@ h2,
   position: absolute;
   left: 10px;
   top: 50%;
-  margin-top: -15px;
+  margin-top: -20px;
   width: 54px;
   font-size: 26px;
 }
@@ -12000,12 +11970,11 @@ h2,
   position: absolute;
   right: 15px;
   top: 50%;
-  margin-top: -10px;
+  margin-top: -15px;
   width: 54px;
   font-size: 20px;
 }
 .card-pf-providers {
-  min-height: 136px;
   padding-top: 10px;
 }
 .card-pf-providers .providers {
@@ -12037,9 +12006,6 @@ h2,
   position: relative;
   padding-bottom: 14px;
 }
-.row-card-pf + .row-card-pf + .row-card-pf {
-  margin-top: 0px;
-}
 .aggregate-status-separator {
   width: 15px;
 }
@@ -12051,8 +12017,8 @@ h2,
   padding-bottom: 9px !important;
 }
 .pf-obj-status-large .card-pf-title {
-  padding-top: 10px;
-  padding-bottom: 20px;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 .pficon-kubernetes::before {
   color: #326de6;
