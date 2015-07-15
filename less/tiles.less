@@ -7,13 +7,13 @@
 }
 
 .tile-pf {
-  background: @tile-pf-bg-color;
-  border-top: 2px solid @tile-pf-border-top-color;
+  background: @card-pf-bg-color;
+  border-top: 2px solid @card-pf-border-top-color;
   .box-shadow(0 1px 1px rgba(0,0,0,.175));
   padding: 0 @grid-gutter-width/2;
   margin: 0 -(@grid-gutter-width/4) @grid-gutter-width/2;
   &.tile-pf-accented {
-    border-top-color: @tile-pf-accented-border-top-color;
+    border-top-color: @card-pf-accented-border-top-color;
   }
   &.tile-pf-aggregate-status, &.tile-pf-status {
     text-align: center;
@@ -27,7 +27,7 @@
       margin-left: -(@grid-gutter-width/2);
     }
     &.tile-pf-bleed-right {
-      border-right: 1px solid @tile-pf-border-color;
+      border-right: 1px solid @card-pf-border-color;
       margin-right: -(@grid-gutter-width/2);
     }
   }
@@ -40,7 +40,7 @@
     font-size: @font-size-base * 1.5; // 18px
   }
   .tile-pf-aggregate-status-notification + .tile-pf-aggregate-status-notification {
-    border-left: 1px solid @tile-pf-border-color;
+    border-left: 1px solid @card-pf-border-color;
     margin-left: @grid-gutter-width/8;
     padding-left: @grid-gutter-width/4;
   }
@@ -58,20 +58,8 @@
   }
 }
 
-.tile-pf-footer {
-  background-color: @tile-pf-footer-bg-color;
-  border-top: 1px solid @tile-pf-border-color;
-  margin: 0 -(@grid-gutter-width/2) !important;
-  padding: @grid-gutter-width/2 @grid-gutter-width/2 @grid-gutter-width/4;
-  a > {
-    .fa, .pficon {
-      margin-right: 5px;
-    }
-  }
-}
-
 .tile-pf-heading {
-  border-bottom: 1px solid @tile-pf-border-color;
+  border-bottom: 1px solid @card-pf-border-color;
   margin: 0 -(@grid-gutter-width/2) @grid-gutter-width/2;
   padding: 0 @grid-gutter-width/2 0;
 }
@@ -85,7 +73,7 @@
     font-size: @font-size-large;
     margin: @grid-gutter-width/4 0 0;
     .fa, .pficon {
-      color: @tile-pf-aggregate-status-title-icon-color;
+      color: @card-pf-aggregate-status-title-icon-color;
       font-size: @font-size-h3;
       margin-right: 5px;
     }
@@ -95,7 +83,7 @@
     margin: @grid-gutter-width/4 0 0;
     padding: 0 0 @grid-gutter-width/4;
     .fa, .pficon {
-      color: @tile-pf-aggregate-status-title-icon-color;
+      color: @card-pf-aggregate-status-title-icon-color;
       font-size: @font-size-large * 2;
       position: absolute;
       left: @grid-gutter-width/4;
@@ -112,10 +100,16 @@
 }
 
 .tiles-pf {
-  background: @tile-pf-container-bg-color;
+  background: @card-pf-container-bg-color;
 }
 
 .row-tile-pf {
   margin-left: -(@grid-gutter-width/4);
   margin-right: -(@grid-gutter-width/4);
+}
+
+//Other styles
+.card-border-body {
+  margin: -20px 0 0 0;
+  padding: 0;
 }

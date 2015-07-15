@@ -6,6 +6,7 @@
 *.swp
 *.swn
 *.swo
+.DS_Store
 
 # Ignore local nodejs packages
 node_modules/
