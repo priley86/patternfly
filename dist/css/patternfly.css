@@ -12225,4 +12225,17 @@ h2,
   float: left;
   margin-right: 20px;
   margin-bottom: 20px;
+  text-align: center;
+  padding: 10px;
+}
+.tiles-view .tile .subtitle {
+  font-weight: bold;
+  font-size: 14px;
+}
+.tiles-view .tile .logo {
+  display: block;
+  margin: 22px auto;
+}
+.tiles-view .tile .more .fa {
+  margin-right: 5px;
 }
