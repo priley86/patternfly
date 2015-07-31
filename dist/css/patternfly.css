@@ -12102,12 +12102,12 @@ h2,
   color: #fff;
 }
 .pf-navbar-header .nav .action .notification-icon-count {
-  display: block;
+  display: inline-block;
   height: 15px;
   width: 15px;
-  position: absolute;
-  right: -6px;
-  top: 12px;
+  position: relative;
+  right: 8px;
+  top: 6px;
   border-radius: 50%;
   background-color: #ce0000;
   color: #fff;
@@ -12148,7 +12148,7 @@ h2,
   background: #fff;
 }
 .pf-navbar-header .infotip.bottom-right .arrow {
-  left: 90%;
+  left: 85%;
 }
 @media (max-width: 768px) {
   .pf-navbar-header .navbar-brand {
