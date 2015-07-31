@@ -2,14 +2,18 @@
 	width: @pf-nav-width;
 	height: 100%;
 	float: left;
-	margin-top: 60px;
 	z-index: 1000;
 	.backface-visibility(hidden);
 	transition: @pf-flyout-transition;
 	overflow-x: hidden;
 	background: @pf-nav-background-color;
 	border-right: 1px solid #dcdcdc;
-	padding-top: 20px;
+
+	.pf-navigation-inner {
+		margin-top: 60px;
+		margin-bottom: 35px;
+		padding-top: 20px;
+	}
 
 	.list-group-item {
 		font-size: 14px;
@@ -55,6 +59,10 @@
 		}
 	}
 
+	.list-group-item-secondary {
+		border-top: 5px solid #f3f3f3;
+	}
+
 	&.collapsed {
 		width: 70px !important;
 
@@ -72,6 +80,25 @@
 			cursor: e-resize;
 		}
 
+	}
+
+	&.hidden {
+		display: none;
+
+		&.showMobileNav {
+			display: block !important;
+			visibility: visible !important;
+			position: absolute;
+			height: 100%;
+
+			.action-collapse {
+				display: none;
+			}
+
+			.pf-navigation-inner {
+				padding-top: 0px;
+			}
+		}
 	}
 
 	.action-collapse {
