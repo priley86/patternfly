@@ -1,7 +1,7 @@
 /*global module,require*/
 var lrSnippet = require('connect-livereload')();
 var mountFolder = function (connect, dir) {
-    return connect.static(require('path').resolve(dir));
+  return connect.static(require('path').resolve(dir));
 };
 
 module.exports = function (grunt) {
@@ -10,8 +10,8 @@ module.exports = function (grunt) {
 
   // configurable paths
   var projectConfig = {
-      dist: 'dist',
-      src: ''
+    dist: 'dist',
+    src: ''
   };
 
   try {
@@ -29,12 +29,36 @@ module.exports = function (grunt) {
           hostname: '0.0.0.0',
           middleware: function (connect) {
             return [
-                lrSnippet,
-                mountFolder(connect, projectConfig.src),
-                mountFolder(connect, projectConfig.src + 'tests')
+              lrSnippet,
+              mountFolder(connect, projectConfig.src),
+              mountFolder(connect, projectConfig.src + 'tests')
             ];
           },
           port: 9000
+        }
+      }
+    },
+    csscount: {
+      production: {
+        src: [
+          'dist/css/patternfly*.min.css'
+        ],
+        options: {
+          maxSelectors: 4096
+        }
+      }
+    },
+    cssmin: {
+      production: {
+        files: [{
+          expand: true,
+          cwd: 'dist/css',
+          src: ['patternfly*.css', '!*.min.css'],
+          dest: 'dist/css',
+          ext: '.min.css',
+        }],
+        options: {
+          sourceMap: true
         }
       }
     },
@@ -48,22 +72,53 @@ module.exports = function (grunt) {
         }
       }
     },
+    jslint: {
+      client: {
+        src: [
+          'dist/js/patternfly.js'
+        ],
+        directives: {
+          // node environment
+          node: false,
+          // browser environment
+          browser: true,
+          // allow dangling underscores
+          nomen: true,
+          // allow todo statements
+          todo: true,
+          // allow unused parameters
+          unparam: true,
+          // add predefined libraries
+          predef: [
+            'jQuery'
+          ],
+          indent: 2
+        }
+      }
+    },
     less: {
-      development: {
+      patternfly: {
         files: {
-          'dist/css/patternfly.css': 'less/patternfly.less'
+          'dist/css/patternfly.css': 'less/patternfly.less',
         },
         options: {
-          paths: ['less/']
+          paths: ['less/'],
+          sourceMap: true,
+          outputSourceFiles: true,
+          sourceMapFilename: 'dist/css/patternfly.css.map',
+          sourceMapURL: 'patternfly.css.map'
         }
       },
-      production: {
+      patternflyAdditions: {
         files: {
-          'dist/css/patternfly.min.css': 'less/patternfly.less'
+          'dist/css/patternfly-additions.css': 'less/patternfly-additions.less'
         },
         options: {
-          cleancss: true,
-          paths: ['less/']
+          paths: ['less/'],
+          sourceMap: true,
+          outputSourceFiles: true,
+          sourceMapFilename: 'dist/css/patternfly-additions.css.map',
+          sourceMapURL: 'patternfly-additions.css.map'
         }
       }
     },
@@ -78,17 +133,21 @@ module.exports = function (grunt) {
       }
     },
     watch: {
-      css: {
-        files: 'less/*.less',
-        tasks: ['less']
-      },
       jekyll: {
         files: 'tests-src/**/*',
         tasks: ['jekyll']
       },
+      less: {
+        files: 'less/*.less',
+        tasks: ['less']
+      },
+      css: {
+        files: ['dist/css/patternfly*.css', 'dist/css/!*.min.css'],
+        tasks: ['cssmin', 'csscount']
+      },
       js: {
         files: ['dist/js/*.js', '!dist/js/*.min.js'],
-        tasks: ['uglify']
+        tasks: ['jslint', 'uglify']
       },
       livereload: {
         files: ['dist/css/*.css', 'dist/js/*.js', 'tests/*.html', '!tests-src/*.html']
@@ -102,6 +161,9 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'jekyll',
     'less',
+    'cssmin',
+    'csscount',
+    'jslint',
     'uglify'
   ]);
 
