@@ -1,16 +1,16 @@
-.pf-navigation {
-	width: @pf-nav-width;
+.navigation-left-pf {
+	width: @navigation-left-hand-width-pf;
 	height: 100%;
 	float: left;
 	z-index: 1000;
 	.backface-visibility(hidden);
-	transition: @pf-flyout-transition;
+	transition: @flyout-transition-pf;
 	overflow-x: hidden;
-	background: @pf-nav-background-color;
+	background: @navigation-left-hand-background-color-pf;
 	border-right: 1px solid #dcdcdc;
 
-	.pf-navigation-inner {
-		margin-top: 60px;
+	.navigation-left-inner-pf {
+		margin-top: @navbar-header-height-pf;
 		margin-bottom: 35px;
 		padding-top: 20px;
 	}
@@ -18,18 +18,18 @@
 	.list-group-item {
 		font-size: 14px;
 		padding: 20px 20px;
-		border-left: 5px solid @pf-nav-background-color;
+		border-left: 5px solid @navigation-left-hand-background-color-pf;
 		white-space: nowrap;
 
 		&:hover {
-			color: @pf-nav-active-color;
-			background-color: @pf-nav-background-color;
+			color: @navigation-left-hand-active-color-pf;
+			background-color: @navigation-left-hand-background-color-pf;
 		}
 
 		&.isActive {
-			border-left: 5px solid @pf-nav-active-color;
-			color: @pf-nav-active-color;
-			background-color: @pf-nav-background-color;
+			border-left: 5px solid @navigation-left-hand-active-color-pf;
+			color: @navigation-left-hand-active-color-pf;
+			background-color: @navigation-left-hand-background-color-pf;
 		}
 
 		.fa {
@@ -54,7 +54,6 @@
 		.list-group-item-value, .count{
 			transition: opacity .5s ease-out;
 			transition-delay: .15s;
-			/* transition: @pf-flyout-transition; */
 			opacity: 1;
 		}
 	}
@@ -74,7 +73,7 @@
 
 		//Set the size of the arrow
 		.action-collapse {
-			width: 70px;
+			width: @navigation-left-hand-collapsed-width-pf;
 			text-align: center;
 			cursor: e-resize;
 		}
@@ -105,16 +104,16 @@
 			text-decoration: none;
 		}
 
-		transition: @pf-flyout-transition;
+		transition: @flyout-transition-pf;
 		cursor: w-resize;
 		color: #333;
 		font-size: 20px;
 		position: absolute;
-		top: 65px;
+		top: (@navbar-header-height-pf + 5px);
 		padding: 4px 18px 16px 18px;
 		z-index: 1;
-		background-color: @pf-nav-background-color;
-		width: @pf-nav-width;
+		background-color: @navigation-left-hand-background-color-pf;
+		width: @navigation-left-hand-width-pf;
 		text-align: right;
 		border-right: 1px solid #dcdcdc;
 	}

@@ -3,37 +3,64 @@
 	overflow: auto;
 
 	.tile {
-		background: #fff;
-		width: 260px;
-		height: 290px;
-		border: 1px solid #eee;
-		.box-shadow(0 1px 1px rgba(0,0,0,.175));
-		float: left;
-		margin-right: 20px;
-		margin-bottom: 20px;
-		text-align: center;
-		padding: 10px;
-		cursor: pointer;
+		perspective: 1000;
 
-		.logo {
-			display: block;
-			margin: 22px auto;
-		}
-
-		.more {
-			opacity: 0;
-			transition: opacity 0s .2s, opacity .2s linear;
+		.tile-flip {
 			background: #fff;
-			border: none;
+			width: 260px;
+			height: 290px;
+			.box-shadow(0 1px 1px rgba(0,0,0,.175));
+			float: left;
+			margin-right: 20px;
+			margin-bottom: 20px;
+			text-align: center;
+			padding: 10px;
+			cursor: pointer;
+			transition: 0.6s;
+			transform-style: preserve-3d;
+			position: relative;
 
-			.fa {
-				margin-right: 5px;
-				font-size: 16px;
+			.logo {
+				display: block;
+				margin: 22px auto;
+			}
+
+			.about {
+				padding: 10px 20px;
+				text-align: left;
+				height: 158px;
+				overflow: scroll;
+			}
+
+			/* hide back of pane during swap */
+			.front, .back {
+				backface-visibility: hidden;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 260px;
+				height: 290px;
+			}
+
+			/* front pane, placed above back */
+			.front {
+				z-index: 2;
+				/* for firefox 31 */
+				transform: rotateY(0deg);
+			}
+
+			/* back, initially hidden pane */
+			.back {
+				transform: rotateY(180deg);
 			}
 		}
-
-		&:hover .more{
-			opacity: 1;
-		}
 	}
+
+
+}
+
+
+/* flip the pane when hovered */
+.tile:hover .tile-flip, .tile.hover .tile-flip {
+	transform: rotateY(180deg);
 }
