@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/priley86/patternfly.svg?branch=travis-test)](https://travis-ci.org/priley86/patternfly)
+
 # [PatternFly](https://www.patternfly.org) reference implementation
 
 This reference implementation of PatternFly is based on [Bootstrap v3](http://getbootstrap.com/).  Think of PatternFly as a "skinned" version of Bootstrap with additional components and customizations. For information on how to quickly get started using PatternFly, see the [Quick Start Guide](QUICKSTART.md).
@@ -130,6 +132,12 @@ The `tests/` directory contains HTML pages with component and pattern examples i
 
 The HTML pages in `tests/` are generated using Jekyll.  Do *not* edit these files directly.  See `tests-src/` to change these files.
 
+### Unit Testing
+Unit tests are written for [Karma test server] (https://karma-runner.github.io/1.0/index.html) with [Jasmine](http://jasmine.github.io/)
+
+```
+npm test
+```
 ## Release
 
 PatternFly is released through the Bower and npm.
