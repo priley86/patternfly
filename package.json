@@ -48,6 +48,10 @@
   "scripts": {
     "test": "./node_modules/karma/bin/karma start"
   },
+  "engines": {
+    "node": ">= 0.10.26",
+    "npm": ">= 1.0.0"
+  },
   "description": "This reference implementation of PatternFly is based on [Bootstrap v3](http://getbootstrap.com/).  Think of PatternFly as a \"skinned\" version of Bootstrap with additional components and customizations.",
   "repository": {
     "type": "git",
