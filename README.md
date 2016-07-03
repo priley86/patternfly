@@ -130,6 +130,13 @@ The `tests/` directory contains HTML pages with component and pattern examples i
 
 The HTML pages in `tests/` are generated using Jekyll.  Do *not* edit these files directly.  See `tests-src/` to change these files.
 
+### Unit Testing
+Unit tests are written for [Karma test server] (https://karma-runner.github.io/1.0/index.html) with [Jasmine](http://jasmine.github.io/)
+
+```
+npm test
+```
+
 ## Release
 
 PatternFly is released through the Bower and npm.
