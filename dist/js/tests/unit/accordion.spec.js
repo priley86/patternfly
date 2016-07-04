@@ -3,7 +3,6 @@ describe("accordion test suite", function(){
   beforeEach(function(){
     jasmine.getFixtures().fixturesPath = './';
     loadFixtures('base/tests/accordions.html');
-
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
   });
 
