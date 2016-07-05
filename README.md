@@ -1,4 +1,4 @@
-*badge to go here*
+[![Build Status](https://travis-ci.org/priley86/patternfly.svg?branch=travis-test)](https://travis-ci.org/priley86/patternfly)
 
 # [PatternFly](https://www.patternfly.org) reference implementation
 
