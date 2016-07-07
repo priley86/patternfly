@@ -28,7 +28,8 @@ module.exports = function(config) {
       {pattern: 'tests/**/*', watched: true, included: false, served: true},
 
       //tests
-      'dist/js/tests/unit/*.spec.js'
+      'src/js/tests/unit/globals.js',
+      'src/js/tests/unit/*.spec.js'
     ],
 
 

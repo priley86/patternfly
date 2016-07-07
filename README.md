@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/priley86/patternfly.svg?branch=travis-test)](https://travis-ci.org/priley86/patternfly)
+[![Build Status](https://travis-ci.org/patternfly/patternfly.svg?branch=master)](https://travis-ci.org/patternfly/patternfly)
 
 # [PatternFly](https://www.patternfly.org) reference implementation
 
