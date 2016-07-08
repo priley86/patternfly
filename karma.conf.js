@@ -25,11 +25,11 @@ module.exports = function(config) {
       {pattern: 'dist/css/*.map', watched: true, included: false, served: true},
       'dist/css/*.css',
       'dist/js/*.js',
-      {pattern: 'tests/**/*', watched: true, included: false, served: true},
+      {pattern: 'dist/tests/**/*', watched: true, included: false, served: true},
 
       //tests
-      'src/js/tests/unit/globals.js',
-      'src/js/tests/unit/*.spec.js'
+      'tests/unit/globals.js',
+      'tests/unit/*.spec.js'
     ],
 
 
@@ -69,7 +69,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
     //custom middleware intercepts
     middleware: ['custom'],
@@ -85,7 +85,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true,
+    singleRun: false,
 
     //Browser inactivity timeout 100s
     browserNoActivityTimeout: 100000

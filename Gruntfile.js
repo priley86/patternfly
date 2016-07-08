@@ -96,11 +96,11 @@ module.exports = function (grunt) {
     },
     jekyll: {
       options: {
-        src: 'tests-src'
+        src: 'tests'
       },
       tests: {
         options: {
-          dest: 'tests'
+          dest: 'dist/tests'
         }
       }
     },
@@ -173,7 +173,7 @@ module.exports = function (grunt) {
         tasks: ['copy']
       },
       jekyll: {
-        files: 'tests-src/**/*',
+        files: 'tests/**/*',
         tasks: ['jekyll']
       },
       less: {
@@ -189,7 +189,7 @@ module.exports = function (grunt) {
         tasks: ['jslint', 'uglify', 'copy:js']
       },
       livereload: {
-        files: ['dist/css/*.css', 'dist/js/*.js', 'tests/*.html', '!tests-src/*.html']
+        files: ['dist/css/*.css', 'dist/js/*.js', 'dist/tests/*.html', '!tests/*.html']
       },
       options: {
         livereload: true
