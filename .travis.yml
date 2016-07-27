@@ -3,6 +3,7 @@ node_js:
   - '0.10'
 
 before_install:
+  - 'git checkout -B master' # Reconcile detached HEAD
   - 'npm install -g bower grunt-cli'
 
 script:
