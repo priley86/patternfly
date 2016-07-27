@@ -14,7 +14,7 @@ git config user.email "patternfly@redhat.com"
 git config --global push.default simple
 
 # Add upstream authentication token
-git remote add upstream https://$AUTH_TOKEN@github.com/patternfly/patternfly.git
+git remote add upstream https://$AUTH_TOKEN@github.com/priley86/patternfly.git
 
 # Commit generated files
 git add dist --force
