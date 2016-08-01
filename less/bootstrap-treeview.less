@@ -12,6 +12,9 @@
     border-top: 1px solid transparent !important;
     margin-bottom: 0;
     padding: 0 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
     &:hover {
       background: @dropdown-link-hover-bg !important;
       border-color: @dropdown-link-hover-border-color !important;
@@ -20,6 +23,12 @@
       background: @dropdown-link-active-bg !important;
       border-color: @dropdown-link-active-border-color !important;
       color: @dropdown-link-active-color !important;
+    }
+    &.node-check-changed {
+      span.node-icon,
+      span.text {
+        color: @bootstrap-treeview-highlight-color;
+      }
     }
   }
   span.icon {
@@ -30,8 +39,18 @@
     > [class*="fa-angle"] {
       font-size: (@font-size-base + 3);
     }
+    &.check-icon {
+      margin-right: 10px;
+    }
   }
   span.indent {
     margin-right: 5px;
+  }
+  .node-disabled {
+    color:silver;
+    cursor: not-allowed;
+  }
+  .node-hidden {
+    display:none;
   }
 }
