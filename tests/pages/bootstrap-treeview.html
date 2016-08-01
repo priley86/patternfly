@@ -4,7 +4,7 @@ categories: [Widgets]
 layout: page
 title: Bootstrap Tree View
 resource: true
-url-js-extra: '//rawgit.com/patternfly/patternfly-bootstrap-treeview/v1.0.0/dist/bootstrap-treeview.min.js'
+url-js-extra: '//rawgit.com/patternfly/patternfly-bootstrap-treeview/patternfly/dist/bootstrap-treeview.min.js'
 ---
       <div class="row">
         <div class="col-sm-4">
@@ -40,12 +40,26 @@ url-js-extra: '//rawgit.com/patternfly/patternfly-bootstrap-treeview/v1.0.0/dist
           <div id="treeview6"></div>
         </div><!--/col-->
         <div class="col-sm-4">
-          <h2></h2>
-          <div id="treeview13"></div>
+          <h2>Checkboxes</h2>
+          <div id="treeview7"></div>
         </div><!--/col-->
         <div class="col-sm-4">
-          <h2></h2>
-          <div id="treeview14"></div>
+          <h2>Hierarchal Checks</h2>
+          <div id="treeview8"></div>
+        </div><!--/col-->
+      </div><!--/row-->
+      <div class="row">
+        <div class="col-sm-4">
+          <h2>Checkbox first</h2>
+          <div id="treeview9"></div>
+        </div><!--/col-->
+        <div class="col-sm-4">
+          <h2>Prevent Unselection</h2>
+          <div id="treeview10"></div>
+        </div><!--/col-->
+        <div class="col-sm-4">
+          <h2>Disabled Nodes</h2>
+          <div id="treeview11"></div>
         </div><!--/col-->
       </div><!--/row-->
       <script>
@@ -193,5 +207,53 @@ url-js-extra: '//rawgit.com/patternfly/patternfly-bootstrap-treeview/v1.0.0/dist
             nodeIcon: "fa fa-folder",
             showBorder: false
           });
+          $('#treeview7').treeview({
+            collapseIcon: "fa fa-angle-down",
+            data: json,
+            expandIcon: "fa fa-angle-right",
+            levels: 99,
+            nodeIcon: "fa fa-folder",
+            showBorder: false,
+            showCheckbox: true
+          });
+          $('#treeview8').treeview({
+            collapseIcon: "fa fa-angle-down",
+            data: json,
+            expandIcon: "fa fa-angle-right",
+            levels: 99,
+            nodeIcon: "fa fa-folder",
+            showBorder: false,
+            showCheckbox: true,
+            hierarchicalCheck: true
+          });
+          $('#treeview9').treeview({
+            collapseIcon: "fa fa-angle-down",
+            data: json,
+            expandIcon: "fa fa-angle-right",
+            levels: 99,
+            nodeIcon: "fa fa-folder",
+            showBorder: false,
+            showCheckbox: true,
+            checkboxFirst: true
+          });
+          $('#treeview10').treeview({
+            collapseIcon: "fa fa-angle-down",
+            data: json,
+            expandIcon: "fa fa-angle-right",
+            levels: 99,
+            nodeIcon: "fa fa-folder",
+            showBorder: false,
+            preventUnselect: true
+          });
+          var tree11 = $('#treeview11').treeview({
+            collapseIcon: "fa fa-angle-down",
+            data: json,
+            expandIcon: "fa fa-angle-right",
+            levels: 99,
+            nodeIcon: "fa fa-folder",
+            showBorder: false
+          });
+          tree11.treeview('disableAll');
+
         });
       </script>
