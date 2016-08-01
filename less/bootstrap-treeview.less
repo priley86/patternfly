@@ -21,6 +21,12 @@
       border-color: @dropdown-link-active-border-color !important;
       color: @dropdown-link-active-color !important;
     }
+    &.node-check-changed {
+      span.node-icon,
+      span.text {
+        color: @bootstrap-treeview-highlight-color;
+      }
+    }
   }
   span.icon {
     display: inline-block;
@@ -30,8 +36,18 @@
     > [class*="fa-angle"] {
       font-size: (@font-size-base + 3);
     }
+    &.check-icon {
+      margin-right: 10px;
+    }
   }
   span.indent {
     margin-right: 5px;
+  }
+  .node-disabled {
+    color:silver;
+    cursor: not-allowed;
+  }
+  .node-hidden {
+    display:none;
   }
 }
