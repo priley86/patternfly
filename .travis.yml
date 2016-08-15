@@ -4,7 +4,7 @@ node_js:
 
 before_install:
   - 'git checkout -B $TRAVIS_BRANCH' # Reconcile detached HEAD
-  - 'if [[ `npm -v` != 3* ]]; then npm i -g npm@3; fi'
+  - 'if [[ `npm -v` != 2* ]]; then npm i -g npm@2; fi'
   - 'npm install -g bower grunt-cli'
 
 script:
