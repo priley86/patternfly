@@ -196,6 +196,17 @@ module.exports = function (grunt) {
       unit: {
         configFile: 'karma.conf.js'
       }
+    },
+    htmlhint: {
+      html: {
+        src: ['dist/tests/**/*.html'],
+        options: {
+          htmlhintrc: '.htmlhintrc'
+        }
+      }
+    },
+    stylelint: {
+      src: ['less/*.less']
     }
   });
 
@@ -206,7 +217,9 @@ module.exports = function (grunt) {
     'cssmin',
     'csscount',
     'jslint',
-    'uglify'
+    'uglify',
+    'htmlhint',
+    'stylelint'
   ]);
 
   grunt.registerTask('server', [
