@@ -87,6 +87,20 @@ module.exports = function (grunt) {
         }
       }
     },
+    cssmin: {
+      production: {
+        files: [{
+          expand: true,
+          cwd: 'dist/css',
+          src: ['patternfly*.css', '!*.min.css'],
+          dest: 'dist/css',
+          ext: '.min.css',
+        }],
+        options: {
+          sourceMap: true
+        }
+      }
+    },
     jslint: {
       client: {
         src: [
@@ -165,7 +179,7 @@ module.exports = function (grunt) {
       },
       css: {
         files: ['dist/css/patternfly*.css', 'dist/css/!*.min.css'],
-        tasks: ['csscount']
+        tasks: ['cssmin','csscount']
       },
       js: {
         files: ['src/js/*.js'],
@@ -198,8 +212,7 @@ module.exports = function (grunt) {
       options: {
         processors: [
           require('pixrem')(), // add fallbacks for rem units
-          require('autoprefixer')({browsers: ['not ie <= 8']}), // add vendor prefixes,
-          require('cssnano')() // minify the result
+          require('autoprefixer')({browsers: ['last 2 versions', 'ie 9']}) // add vendor prefixes,
         ]
       },
       dist: {
@@ -208,9 +221,7 @@ module.exports = function (grunt) {
             expand: true,     // Enable dynamic expansion.
             cwd: 'dist/css/',      // Src matches are relative to this path.
             src: ['*.css'], // Actual pattern(s) to match.
-            dest: 'dist/css',   // Destination path prefix.
-            ext: '.min.css',   // Dest filepaths will have this extension.
-            extDot: 'first'   // Extensions in filenames begin after the first dot
+            dest: 'dist/css'   // Destination path prefix.
           }
         ]
       }
@@ -222,6 +233,7 @@ module.exports = function (grunt) {
     'copy',
     'jekyll',
     'less',
+    'cssmin',
     'postcss',
     'csscount',
     'jslint',

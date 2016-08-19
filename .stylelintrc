@@ -48,7 +48,6 @@
     "selector-pseudo-element-case": "lower",
     "selector-pseudo-element-colon-notation": "single",
     "selector-pseudo-element-no-unknown": true,
-    "selector-type-case": "lower",
-    "selector-no-id": false
+    "selector-type-case": "lower"
   }
 }
