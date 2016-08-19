@@ -43,14 +43,14 @@
     &:active,
     &.active {
       background-color: @background;
-      border-color: @border
+      border-color: @border;
     }
   }
 }
 
 // Form control outline
 .form-control-outline(@color: @input-border-focus) {
-  @color-rgba: rgba(red(@color), green(@color), blue(@color), .6);
+  @color-rgba: rgba(red(@color), green(@color), blue(@color), 0.6);
   &:focus {
     border-color: @color;
     outline: 0 !important;
