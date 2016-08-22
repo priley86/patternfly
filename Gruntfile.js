@@ -1,7 +1,6 @@
 /*global module,require*/
 module.exports = function (grunt) {
-  // load all grunt tasks
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  'use strict';
 
   // configurable paths
   var projectConfig = {
@@ -9,8 +8,11 @@ module.exports = function (grunt) {
     src: ''
   };
 
+  // load all grunt tasks
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
   try {
-      projectConfig.src = require('./bower.json').appPath || projectConfig.src;
+    projectConfig.src = require('./bower.json').appPath || projectConfig.src;
   } catch (e) {}
 
   grunt.initConfig({
@@ -101,31 +103,6 @@ module.exports = function (grunt) {
         }
       }
     },
-    jslint: {
-      client: {
-        src: [
-          'src/js/patternfly.js'
-        ],
-        directives: {
-          // node environment
-          node: false,
-          // browser environment
-          browser: true,
-          // allow dangling underscores
-          nomen: true,
-          // allow todo statements
-          todo: true,
-          // allow unused parameters
-          unparam: true,
-          // add predefined libraries
-          predef: [
-            'jQuery',
-            'Event'
-          ],
-          indent: 2
-        }
-      }
-    },
     less: {
       patternfly: {
         files: {
@@ -183,7 +160,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['src/js/*.js'],
-        tasks: ['jslint', 'uglify', 'copy:js']
+        tasks: ['eslint', 'uglify', 'copy:js']
       },
       livereload: {
         files: ['dist/css/*.css', 'dist/js/*.js', 'dist/tests/*.html', '!tests/pages/*.html']
@@ -204,6 +181,15 @@ module.exports = function (grunt) {
           htmlhintrc: '.htmlhintrc'
         }
       }
+    },
+    eslint: {
+      options: {
+        configFile: 'eslint.yaml'
+      },
+      target: [
+        'Gruntfile.js',
+        'src/js/**/*.js'
+      ]
     },
     stylelint: {
       src: ['less/*.less']
@@ -236,7 +222,7 @@ module.exports = function (grunt) {
     'cssmin',
     'postcss',
     'csscount',
-    'jslint',
+    'eslint',
     'uglify',
     'htmlhint',
     'stylelint'
