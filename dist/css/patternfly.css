@@ -2591,20 +2591,7 @@ output {
 .form-control::-webkit-input-placeholder {
   color: #999;
 }
-.form-control:-moz-placeholder {
-  color: #999;
-  font-style: italic;
-}
-.form-control::-moz-placeholder {
-  color: #999;
-  font-style: italic;
-  opacity: 1;
-}
-.form-control:-ms-input-placeholder {
-  color: #999;
-  font-style: italic;
-}
-.form-control::-webkit-input-placeholder {
+.form-control::placeholder {
   color: #999;
   font-style: italic;
 }
@@ -9846,14 +9833,6 @@ fieldset[disabled] .pagination > li > span.active {
 }
 .popover-title.closable {
   padding-right: 30px;
-}
-@-webkit-keyframes progress-bar-stripes {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 40px 0;
-  }
 }
 @keyframes progress-bar-stripes {
   from {
