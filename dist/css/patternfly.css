@@ -9573,9 +9573,6 @@ fieldset[disabled] .pager li > span.active {
   vertical-align: top;
   margin: 2px 0;
 }
-.pager li > a:hover > a:focus {
-  color: #4d5258;
-}
 .pager li a:active {
   background-image: none;
   box-shadow: inset 0 3px 5px rgba(3, 3, 3, 0.125);

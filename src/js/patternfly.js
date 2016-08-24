@@ -309,7 +309,7 @@
         $('.nav-pf-vertical-alt [data-toggle="tooltip"]').tooltip({'container': 'body', 'delay': { 'show': '500', 'hide': '200' }});
 
         $(".nav-pf-vertical-alt").on("show.bs.tooltip", function (e) {
-          return !$(this).hasClass("collapsed") ? false : true;
+          return $(this).hasClass("collapsed");
         });
 
       },
@@ -994,7 +994,7 @@
       }
       return parent;
     }
-    return null;
+    return undefined;
   }
 
   function renderItem (item, parent) {
@@ -1563,7 +1563,7 @@
         $('.nav-pf-vertical [data-toggle="tooltip"]').tooltip(tooltipOptions);
 
         $('.nav-pf-vertical').on("show.bs.tooltip", function (e) {
-          return !$(this).hasClass("collapsed") ? false : true;
+          return $(this).hasClass("collapsed");
         });
       },
 
