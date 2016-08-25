@@ -1,89 +1,3 @@
-      <nav class="navbar navbar-default navbar-pf" role="navigation">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">
-            <img src="{{site.navbar-brand-icon}}" alt="{{ site.title-product }}" />
-          </a>
-        </div>
-        <div class="collapse navbar-collapse navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-utility">
-            <li>
-              <a href="#">Status</a>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="pficon pficon-user"></span>
-                Brian Johnson <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="#">Link</a>
-                </li>
-                <li>
-                  <a href="#">Another link</a>
-                </li>
-                <li>
-                  <a href="#">Something else here</a>
-                </li>
-                <li class="divider"></li>
-                <li class="dropdown-submenu">
-                  <a tabindex="-1" href="#">More options</a>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a href="#">Link</a>
-                    </li>
-                    <li>
-                      <a href="#">Another link</a>
-                    </li>
-                    <li>
-                      <a href="#">Something else here</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li>
-                      <a href="#">Separated link</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                      <a href="#">One more separated link</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="divider"></li>
-                <li>
-                  <a href="#">One more separated link</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-primary">
-            <li>
-              <a href="#">First Link</a>
-            </li>
-            <li>
-              <a href="#">Another Link</a>
-            </li>
-            <li>
-              <a href="#">And Another</a>
-            </li>
-            <li>
-              <a href="#">As a General Rule</a>
-            </li>
-            <li>
-              <a href="#">Five to Seven Links</a>
-            </li>
-            <li>
-              <a href="#">Is Good</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
       <div class="container-fluid">
         <div class="row toolbar-pf">
           <div class="col-sm-12">
@@ -124,12 +38,34 @@
                 <button class="btn btn-default" type="button">Action</button>
                 {% include widgets/kebab.html dropmenuType="dropdown btn-group" dropmenuId="dropdownKebab" dropmenuVariation="dropdown-kebab-pf" %}
               </div>
-              <div class="form-group toolbar-pf-view-selector">
-                <ul class="list-inline">
-                  <li><a href="#"><i class="fa fa-th"></i></a></li>
-                  <li class="active"><a href="#"><i class="fa fa-th-large"></i></a></li>
-                  <li><a href="#"><i class="fa fa-th-list"></i></a></li>
-                </ul>
+              <div class="toolbar-pf-action-right">
+                <div class="form-group toolbar-pf-find">
+                  <button class="btn btn-link btn-find" type="button">
+                    <span class="fa fa-search"></span>
+                  </button>
+                  <div class="find-pf-dropdown-container">
+                    <input type="text" class="form-control" id="find" placeholder="Find By Keyword...">
+                    <div class="find-pf-buttons">
+                      <span class="find-pf-nums">1 of 3</span>
+                      <button class="btn btn-link" type="button">
+                        <span class="fa fa-angle-up"></span>
+                      </button>
+                      <button class="btn btn-link" type="button">
+                        <span class="fa fa-angle-down"></span>
+                      </button>
+                      <button class="btn btn-link btn-find-close" type="button">
+                        <span class="pficon pficon-close"></span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group toolbar-pf-view-selector">
+                  <ul class="list-inline">
+                    <li><a href="#"><i class="fa fa-th"></i></a></li>
+                    <li class="active"><a href="#"><i class="fa fa-th-large"></i></a></li>
+                    <li><a href="#"><i class="fa fa-th-list"></i></a></li>
+                  </ul>
+                </div>
               </div>
             </form>
             <div class="row toolbar-pf-results">
@@ -162,3 +98,18 @@
           </div><!-- /col -->
         </div><!-- /row -->
       </div><!-- /container -->
+      <script>
+      (function($) {
+        $(document).ready(function() {
+          // Upon clicking the find button, show the find dropdown content
+          $(".btn-find").click(function () {
+            $(".find-pf-dropdown-container").toggle();
+          });
+          // Upon clicking the find close button, hide the find dropdown content
+          $(".btn-find-close").click(function () {
+            $(".find-pf-dropdown-container").hide();
+          });
+
+        });
+      })(jQuery);
+    </script>

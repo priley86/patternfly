@@ -76,6 +76,11 @@ clean()
   if [ -d components ]; then
     rm -rf components
   fi
+
+  # shrinkwrap
+  if [ -s $SHRINKWRAP_JSON ]; then
+    rm -f $SHRINKWRAP_JSON
+  fi
 }
 
 # Install dependencies
@@ -136,7 +141,10 @@ setup_repo() {
   git clone $PTNFLY_REPO
   cd $PTNFLY_DIR
 
-  git checkout -B $BRANCH
+  git checkout $BRANCH
+  if [ "$?" -ne 0 ]; then
+    git checkout -B $BRANCH
+  fi
   check $? "Local repo setup failure"
 }
 
@@ -145,11 +153,6 @@ shrinkwrap()
 {
   echo "*** Shrink wrapping $SHRINKWRAP_JSON"
   cd $PTNFLY_DIR
-
-  # shrinkwrap
-  if [ -s $SHRINKWRAP_JSON ]; then
-    rm -f $SHRINKWRAP_JSON
-  fi
 
   npm shrinkwrap
   check $? "npm shrinkwrap failure"
@@ -172,7 +175,7 @@ cat <<- EEOOFF
     h       Display this message (default) 
     f       Force push to new repo branch (e.g., bump-v3.7.0)
     p       Publish to npm from latest repo clone
-    s       Skip repo setup (e.g., to rebuild previously created repo)
+    s       Skip new clone, clean, and install to rebuild previously created repo -- not valid with -p
     v       The version number (e.g., 3.7.0) -- not valid with -p
 
 EEOOFF
@@ -222,19 +225,25 @@ verify()
 
   prereqs
 
-  if [ -z "$SETUP" ]; then
-    setup_repo
-  fi
-
   if [ -z "$PUBLISH" ]; then
+    if [ -z "$SETUP" ]; then
+      setup_repo
+    fi
+
     bump_bower
     bump_package
-    clean
-    install
+
+    if [ -z "$SETUP" ]; then
+      clean
+      install
+    fi
+
     build
     shrinkwrap
     verify
   else
+    # Publish from the latest repo clone -- don't skip setup or clean.
+    setup_repo
     clean
     install
     build

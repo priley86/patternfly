@@ -27,10 +27,11 @@
     <link rel="stylesheet" href="../../dist/css/patternfly-additions.min.css" >
     <link href="tests.css" rel="stylesheet" media="screen, print">
     <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="//rawgit.com/patternfly/patternfly-bootstrap-treeview/patternfly/dist/bootstrap-treeview.min.js"></script>
     <script src="../../dist/js/patternfly.min.js"></script>
   </head>
+  </div>
 
   <body>
     <div class="container">
@@ -86,16 +87,22 @@
       </div><!--/row-->
       <div class="row">
         <div class="col-sm-4">
-          <h2>Checkbox first</h2>
+          <h2>Highlight Select</h2>
           <div id="treeview9"></div>
         </div><!--/col-->
         <div class="col-sm-4">
-          <h2>Prevent Unselection</h2>
+          <h2>Lazy Load</h2>
           <div id="treeview10"></div>
         </div><!--/col-->
         <div class="col-sm-4">
-          <h2>Disabled Nodes</h2>
+          <h2>Prevent Unselection</h2>
           <div id="treeview11"></div>
+        </div><!--/col-->
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <h2>Disabled Nodes</h2>
+          <div id="treeview12"></div>
         </div><!--/col-->
       </div><!--/row-->
       <script>
@@ -109,7 +116,6 @@
                 {
                   text: 'Child 1',
                   href: '#child1',
-                  icon: 'fa fa-file-o',
                   tags: ['2'],
                   nodes: [
                     {
@@ -158,19 +164,24 @@
           var json = '[' +
             '{' +
               '"text": "Parent 1",' +
+              '"lazyLoad": true,' +
               '"nodes": [' +
                 '{' +
                   '"text": "Child 1",' +
+                  '"lazyLoad": true,' +
                   '"nodes": [' +
                     '{' +
+                      '"icon": "fa fa-file-o",' +
                       '"text": "Grandchild 1"' +
                     '},' +
                     '{' +
+                      '"icon": "fa fa-file-o",' +
                       '"text": "Grandchild 2"' +
                     '}' +
                   ']' +
                 '},' +
                 '{' +
+                  '"icon": "fa fa-file-o",' +
                   '"text": "Child 2"' +
                 '}' +
               ']' +
@@ -188,6 +199,8 @@
               '"text": "Parent 5"' +
             '}' +
           ']';
+
+          //Default
           $('#treeview1').treeview({
             collapseIcon: "fa fa-angle-down",
             data: defaultData,
@@ -196,6 +209,7 @@
             showBorder: false
           });
 
+          //Collapsed
           $('#treeview2').treeview({
             collapseIcon: "fa fa-angle-down",
             data: defaultData,
@@ -205,6 +219,7 @@
             showBorder: false
           });
 
+          //Expanded
           $('#treeview3').treeview({
             collapseIcon: "fa fa-angle-down",
             data: defaultData,
@@ -214,6 +229,7 @@
             showBorder: false
           });
 
+          //Link Enabled
           $('#treeview4').treeview({
             collapseIcon: "fa fa-angle-down",
             data: defaultData,
@@ -224,6 +240,7 @@
             showBorder: false
           });
 
+          //Events
           $('#treeview5').treeview({
             collapseIcon: "fa fa-angle-down",
             data: defaultData,
@@ -235,6 +252,8 @@
               $('#event_output').prepend('<p>You clicked ' + node.text + '</p>');
             }
           });
+
+          //JSON Data
           $('#treeview6').treeview({
             collapseIcon: "fa fa-angle-down",
             data: json,
@@ -243,36 +262,78 @@
             nodeIcon: "fa fa-folder",
             showBorder: false
           });
+
+          //Checkboxes
           $('#treeview7').treeview({
             collapseIcon: "fa fa-angle-down",
             data: json,
             expandIcon: "fa fa-angle-right",
             levels: 99,
             nodeIcon: "fa fa-folder",
+            checkedIcon: "fa fa-check-square-o",
+            uncheckedIcon: "fa fa-square-o",
+            partiallyCheckedIcon: "fa fa-check-square",
             showBorder: false,
-            showCheckbox: true
+            showCheckbox: true,
+            checkboxFirst: true,
+            wrapNodeText: true
           });
+
+          //Hierarchal Checks
           $('#treeview8').treeview({
             collapseIcon: "fa fa-angle-down",
             data: json,
             expandIcon: "fa fa-angle-right",
             levels: 99,
             nodeIcon: "fa fa-folder",
+            checkedIcon: "fa fa-check-square-o",
+            uncheckedIcon: "fa fa-square-o",
+            partiallyCheckedIcon: "fa fa-check-square",
             showBorder: false,
             showCheckbox: true,
-            hierarchicalCheck: true
+            hierarchicalCheck: true,
+            checkboxFirst: true,
+            wrapNodeText: true
           });
+
+          //Highlight Select
           $('#treeview9').treeview({
             collapseIcon: "fa fa-angle-down",
             data: json,
             expandIcon: "fa fa-angle-right",
             levels: 99,
             nodeIcon: "fa fa-folder",
+            checkedIcon: "fa fa-check-square-o",
+            uncheckedIcon: "fa fa-square-o",
+            partiallyCheckedIcon: "fa fa-check-square",
             showBorder: false,
             showCheckbox: true,
-            checkboxFirst: true
+            hierarchicalCheck: true,
+            checkboxFirst: true,
+            wrapNodeText: true,
+            highlightChanges: true,
+            changedNodeColor: '#363636'
           });
+
+          //Lazy Load
           $('#treeview10').treeview({
+            collapseIcon: "fa fa-angle-down",
+            data: json,
+            expandIcon: "fa fa-angle-right",
+            levels: 1,
+            nodeIcon: "fa fa-folder",
+            showBorder: false,
+            wrapNodeText: true,
+            loadingIcon: "glyphicon glyphicon-hourglass",
+            lazyLoad: function(node, callback){
+              setTimeout(function() {
+                callback([]);
+              }, 2000);
+            }
+          });
+
+          //Prevent Unselection
+          $('#treeview11').treeview({
             collapseIcon: "fa fa-angle-down",
             data: json,
             expandIcon: "fa fa-angle-right",
@@ -281,7 +342,9 @@
             showBorder: false,
             preventUnselect: true
           });
-          var tree11 = $('#treeview11').treeview({
+
+          //Disabled Nodes
+          var tree12 = $('#treeview12').treeview({
             collapseIcon: "fa fa-angle-down",
             data: json,
             expandIcon: "fa fa-angle-right",
@@ -289,7 +352,7 @@
             nodeIcon: "fa fa-folder",
             showBorder: false
           });
-          tree11.treeview('disableAll');
+          tree12.treeview('disableAll');
 
         });
       </script>
