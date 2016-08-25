@@ -2286,6 +2286,8 @@ fieldset[disabled] .combobox-container .input-group-addon.active {
   border-top: 1px solid transparent !important;
   margin-bottom: 0;
   padding: 0 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .treeview .list-group-item:hover {
   background: #def3ff !important;
