@@ -3417,6 +3417,7 @@ a.disabled {
 .list-view-pf .list-group-item.active {
   color: #555;
   background-color: #def3ff;
+  z-index: auto;
 }
 .list-view-pf .list-group-item:hover {
   background-color: #ededed;
