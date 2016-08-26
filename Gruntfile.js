@@ -1,7 +1,6 @@
 /*global module,require*/
 module.exports = function (grunt) {
-  // load all grunt tasks
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  'use strict';
 
   // configurable paths
   var projectConfig = {
@@ -9,8 +8,11 @@ module.exports = function (grunt) {
     src: ''
   };
 
+  // load all grunt tasks
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
   try {
-      projectConfig.src = require('./bower.json').appPath || projectConfig.src;
+    projectConfig.src = require('./bower.json').appPath || projectConfig.src;
   } catch (e) {}
 
   grunt.initConfig({
@@ -77,6 +79,16 @@ module.exports = function (grunt) {
         }
       }
     },
+    jekyll: {
+      options: {
+        src: 'tests/pages'
+      },
+      tests: {
+        options: {
+          dest: 'dist/tests'
+        }
+      }
+    },
     cssmin: {
       production: {
         files: [{
@@ -88,41 +100,6 @@ module.exports = function (grunt) {
         }],
         options: {
           sourceMap: true
-        }
-      }
-    },
-    jekyll: {
-      options: {
-        src: 'tests/pages'
-      },
-      tests: {
-        options: {
-          dest: 'dist/tests'
-        }
-      }
-    },
-    jslint: {
-      client: {
-        src: [
-          'src/js/patternfly.js'
-        ],
-        directives: {
-          // node environment
-          node: false,
-          // browser environment
-          browser: true,
-          // allow dangling underscores
-          nomen: true,
-          // allow todo statements
-          todo: true,
-          // allow unused parameters
-          unparam: true,
-          // add predefined libraries
-          predef: [
-            'jQuery',
-            'Event'
-          ],
-          indent: 2
         }
       }
     },
@@ -166,20 +143,19 @@ module.exports = function (grunt) {
     },
     watch: {
       copy: {
-        files:
-          [
-            'node_modules/bootstrap/dist/fonts/**/*',
-            'node_modules/font-awesome/fonts/**/*',
-            'node_modules/bootstrap/less/**/*',
-            'node_modules/font-awesome/less/**/*',
-            'node_modules/patternfly-bootstrap-combobox/less/**/*',
-            'node_modules/bootstrap-datepicker/less/**/*',
-            'node_modules/bootstrap-select/less/**/*',
-            'node_modules/bootstrap-touchspin/dist/**/*',
-            'node_modules/c3/**/*',
-            'src/fonts/**/*',
-            'src/img/**/*'
-          ],
+        files: [
+          'node_modules/bootstrap/dist/fonts/**/*',
+          'node_modules/font-awesome/fonts/**/*',
+          'node_modules/bootstrap/less/**/*',
+          'node_modules/font-awesome/less/**/*',
+          'node_modules/patternfly-bootstrap-combobox/less/**/*',
+          'node_modules/bootstrap-datepicker/less/**/*',
+          'node_modules/bootstrap-select/less/**/*',
+          'node_modules/bootstrap-touchspin/dist/**/*',
+          'node_modules/c3/**/*',
+          'src/fonts/**/*',
+          'src/img/**/*'
+        ],
         tasks: ['copy']
       },
       jekyll: {
@@ -192,11 +168,11 @@ module.exports = function (grunt) {
       },
       css: {
         files: ['dist/css/patternfly*.css', 'dist/css/!*.min.css'],
-        tasks: ['cssmin', 'csscount']
+        tasks: ['cssmin','csscount']
       },
       js: {
         files: ['src/js/*.js'],
-        tasks: ['jslint', 'uglify', 'copy:js']
+        tasks: ['eslint', 'uglify', 'copy:js']
       },
       livereload: {
         files: ['dist/css/*.css', 'dist/js/*.js', 'dist/tests/*.html', '!tests/pages/*.html']
@@ -209,6 +185,45 @@ module.exports = function (grunt) {
       unit: {
         configFile: 'karma.conf.js'
       }
+    },
+    htmlhint: {
+      html: {
+        src: ['dist/tests/**/*.html'],
+        options: {
+          htmlhintrc: '.htmlhintrc'
+        }
+      }
+    },
+    eslint: {
+      options: {
+        configFile: 'eslint.yaml'
+      },
+      target: [
+        'Gruntfile.js',
+        'src/js/**/*.js'
+      ]
+    },
+    stylelint: {
+      src: ['less/*.less']
+    },
+    postcss: {
+      options: {
+        processors: [
+          require('pixrem')(), // add fallbacks for rem units
+          require('autoprefixer')({browsers: ['last 3 versions', 'ie 9']}) // add vendor prefixes,
+        ]
+      },
+      dist: {
+        files: [
+          {
+            expand: true,     // Enable dynamic expansion.
+            cwd: 'dist/css/',      // Src matches are relative to this path.
+            src: ['*.css'], // Actual pattern(s) to match.
+            dest: 'dist/css'   // Destination path prefix.
+          }
+        ]
+      }
+
     }
   });
 
@@ -217,9 +232,12 @@ module.exports = function (grunt) {
     'jekyll',
     'less',
     'cssmin',
+    'postcss',
     'csscount',
-    'jslint',
-    'uglify'
+    'eslint',
+    'uglify',
+    'htmlhint',
+    'stylelint'
   ]);
 
   grunt.registerTask('server', [
