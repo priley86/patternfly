@@ -2319,7 +2319,7 @@ fieldset[disabled] .combobox-container .input-group-addon.active {
   margin-right: 5px;
 }
 .treeview .node-disabled {
-  color: #C0C0C0;
+  color: #c0c0c0;
   cursor: not-allowed;
 }
 .treeview .node-hidden {
