@@ -1299,7 +1299,7 @@ select.selectpicker {
   border-top-left-radius: 0px;
 }
 /*
- *  Bootstrap TouchSpin - v3.1.1
+ *  Bootstrap TouchSpin - v3.1.2
  *  A mobile and touch friendly input spinner component for Bootstrap 3.
  *  http://www.virtuosoft.eu/code/bootstrap-touchspin/
  *
@@ -2319,7 +2319,7 @@ fieldset[disabled] .combobox-container .input-group-addon.active {
   margin-right: 5px;
 }
 .treeview .node-disabled {
-  color: silver;
+  color: #C0C0C0;
   cursor: not-allowed;
 }
 .treeview .node-hidden {
