@@ -418,6 +418,7 @@
     black700:      '#4d5258',
     black800:      '#393f44',
     black900:      '#292e34',
+    black950:      '#363636',
     blue:          '#0088ce',
     blue100:       '#bee1f4',
     blue200:       '#7dc3e8',
