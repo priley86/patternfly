@@ -16,6 +16,17 @@ describe("bar-charts test suite", function () {
     }, globals.wait);
   });
 
+  it('should render a stacked vertical bar chart with four bars', function (done) {
+    var verticalBarChart = $('#stackedVerticalBarChart');
+    var verticalBars = verticalBarChart.find('.c3-chart-bars .c3-chart-bar');
+
+    setTimeout(function () {
+      expect(verticalBarChart).toExist();
+      expect(verticalBars).toHaveLength(4);
+      done();
+    }, globals.wait);
+  });
+
   function renderBarCharts() {
     var c3ChartDefaults = $().c3ChartDefaults();
 
