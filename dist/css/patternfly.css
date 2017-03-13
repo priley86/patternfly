@@ -9419,22 +9419,6 @@ fieldset[disabled] .form-control:hover {
 .has-warning .form-control:hover {
   border-color: #bb6106;
 }
-.form-control::-webkit-input-placeholder {
-  color: #999;
-  font-style: italic;
-}
-.form-control::-moz-placeholder {
-  color: #999;
-  font-style: italic;
-}
-.form-control:-ms-input-placeholder {
-  color: #999;
-  font-style: italic;
-}
-.form-control::placeholder {
-  color: #999;
-  font-style: italic;
-}
 .has-error .checkbox,
 .has-success .checkbox,
 .has-warning .checkbox,
