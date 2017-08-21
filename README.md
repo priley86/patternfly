@@ -93,7 +93,7 @@ then
 npm install
 ```
 
-This should take care of the majority of dependencies, including [Jekyll](http://jekyllrb.com/). During the install you may be asked for your password as part of the [Ruby](https://www.ruby-lang.org/en/documentation/installation/) installation process.
+This should take care of the majority of dependencies.
 
 Since PatternFly is shrink wrapped, npm 3 will install all necessary development packages into `node_modules/patternfly/node_modules`. At this point, the gruntjs tasks are available for use such as starting a local development server or building the master CSS file.
 
@@ -116,7 +116,9 @@ gem install bundle
 bundle install
 ```
 
-Then set the environment variable PF_PAGE_BUILDER=jekyll.  eg.:
+During the install you may be asked for your password as part of the [Ruby](https://www.ruby-lang.org/en/documentation/installation/) installation process.
+
+Next, set the environment variable PF_PAGE_BUILDER=jekyll.  eg.:
     PF_PAGE_BUILDER=jekyll grunt build
 
 #### Keeping NPM Dependencies Updated
@@ -192,43 +194,38 @@ or
 ```
 grunt karma
 ```
-## Release
 
-PatternFly is released through the Bower and npm.
+## Git Commit Guidelines
 
-To release a new version version of PatternFly, edit `bower.json` and `package.json` accordingly.
+PatternFly uses a semantic release process to automate npm and bower package publishing, based on the following commit message format.
 
-Update the version listed in `bower.json` by editing the file and changing the line:
-
-```
-"version": "<new_version>"
-```
-
-Update the version listed in `package.json` by editing the file and changing the line:
+Each commit message consists of a **header**, a **body** and a **footer**.  The header has a special
+format that includes a **type**, a **scope** and a **subject** ([full explanation](https://github.com/stevemao/conventional-changelog-angular/blob/master/convention.md)):
 
 ```
-"version": "<new_version>"
+<type>(<scope>): <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
 ```
 
-Commit the version bump:
+##### Patch Release
 
 ```
-git commit -a -m "Version bump to <new_version>"
+fix(pencil): stop graphite breaking when too much pressure applied
 ```
 
-Tag and push upstream (assuming you have commit access):
+##### Feature Release
 
 ```
-git tag <new_version>
-git push && git push --tags
+feat(pencil): add 'graphiteWidth' option
 ```
 
-The Bower package manager determines available versions and installs based upon git tags, so the new version will now be automatically available via Bower.
-
-To publish a new version to npm, execute:
+##### Breaking Release
 
 ```
-npm publish
+perf(pencil): remove graphiteWidth option
 ```
 
 ## Documentation

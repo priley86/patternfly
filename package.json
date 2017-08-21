@@ -1,6 +1,6 @@
 {
   "name": "patternfly",
-  "version": "3.25.0",
+  "version": "0.0.0-semantically-released",
   "author": "Red Hat",
   "license": "Apache-2.0",
   "dependencies": {
@@ -38,14 +38,15 @@
     "karma-firefox-launcher": "^1.0.0",
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.1",
-    "liquid-node": "https://github.com/bleathem/liquid-node.git#v2.6.1-pf.1",
+    "liquid-node": "bleathem/liquid-node#v2.6.1-pf.1",
     "lodash": "^4.17.4",
     "matchdep": "~1.0.1",
     "mz": "^2.6.0",
     "nsp": "^2.6.1",
-    "patternfly-eng-release": "~3.25.0",
+    "patternfly-eng-release": "^3.26.29",
     "pixrem": "^3.0.1",
-    "table": "3.7.9"
+    "table": "3.7.9",
+    "semantic-release": "^6.3.6"
   },
   "optionalDependencies": {
     "bootstrap-datepicker": "~1.6.4",
@@ -67,12 +68,22 @@
     "patternfly-bootstrap-combobox": "~1.1.7",
     "patternfly-bootstrap-treeview": "~2.1.0"
   },
+  "release": {
+    "branch": "master-dist",
+    "debug": false,
+    "verifyConditions": {
+      "path": "./node_modules/semantic-release/src/lib/plugin-noop.js"
+    }
+  },
   "scripts": {
     "test": "grunt karma",
     "build": "grunt build",
-    "jekyll": "ruby --version || echo \"Ruby required\"; gem install bundler; bundle install; set -e",
+    "jekyll": "ruby --version || echo \"Ruby required\"; bundler -v || gem install bundler; bundle check || bundle install; set -e",
     "start": "npm run build; grunt server & open http://localhost:9000",
-    "postinstall": "npm run jekyll"
+    "grunt": "grunt",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "semantic-release-post": "semantic-release post",
+    "semantic-release-pre": "semantic-release pre"
   },
   "description": "This reference implementation of PatternFly is based on [Bootstrap v3](http://getbootstrap.com/).  Think of PatternFly as a \"skinned\" version of Bootstrap with additional components and customizations.",
   "repository": {
