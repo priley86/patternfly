@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html lang="en-us" class="ie9"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en-us">
+<!--<![endif]-->
+  <head>
+    <title>Canvas View - PatternFly</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../dist/img/favicon.ico">
+    <!-- iPad retina icon -->
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../dist/img/apple-touch-icon-precomposed-152.png">
+    <!-- iPad retina icon (iOS < 7) -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../dist/img/apple-touch-icon-precomposed-144.png">
+    <!-- iPad non-retina icon -->
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="../../dist/img/apple-touch-icon-precomposed-76.png">
+    <!-- iPad non-retina icon (iOS < 7) -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../dist/img/apple-touch-icon-precomposed-72.png">
+    <!-- iPhone 6 Plus icon -->
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../../dist/img/apple-touch-icon-precomposed-180.png">
+    <!-- iPhone retina icon (iOS < 7) -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../dist/img/apple-touch-icon-precomposed-114.png">
+    <!-- iPhone non-retina icon (iOS < 7) -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../../dist/img/apple-touch-icon-precomposed-57.png">
+    <link rel="stylesheet" href="../../dist/css/patternfly.min.css" >
+    <link rel="stylesheet" href="../../dist/css/patternfly-additions.min.css" >
+      <link href="tests.css" rel="stylesheet" media="screen, print">
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./../../dist/js/patternfly.min.js"></script>
+  </head>
+  <div class="toast-notifications-list-pf">
+    <div class="toast-pf alert alert-warning alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+        <span class="pficon pficon-close"></span>
+      </button>
+      <span class="pficon pficon-warning-triangle-o"></span>
+      These examples are included for development testing purposes.  For official documentation, see <a href="https://www.patternfly.org" class="alert-link">https://www.patternfly.org</a> and <a href="http://getbootstrap.com" class="alert-link">http://getbootstrap.com</a>.
+    </div>
+  </div>
+
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>Canvas View</h1>
+      </div>
+      <div class="alert alert-warning">
+        <span class="pficon pficon-warning-triangle-o"></span>
+        These examples are included for development testing purposes.  For official documentation, see <a href="https://www.patternfly.org" class="alert-link">https://www.patternfly.org</a> and <a href="http://getbootstrap.com" class="alert-link">http://getbootstrap.com</a>.
+      </div>
+      <hr>
+<div class="canvas-editor-container">
+  <div class="canvas-editor-toolbar">
+    <button class="btn btn-primary" type="button">
+      Add Item 
+      <span class="fa fa-angle-double-down"></span>
+    </button>
+    <span>
+      <span class="more-actions ng-scope">
+        <a class="disabled">
+          <span class="pficon fa fa-copy"></span>
+        </a>
+        <a class="disabled">
+          <span class="pficon pficon-delete"></span>
+        </a>
+      </span>
+    </span>
+    <span class="right-aligned-controls">
+      <input type="checkbox">
+      <span class="show-hide-connectors-label">Hide Connectors</span>
+      <a id="zoomOut" class="disabled">
+        <span class="pficon fa fa-minus"></span>
+      </a>
+      <a id="zoomIn" class="disabled">
+        <span class="pficon fa fa-plus"></span>
+      </a>
+    </span>
+  </div>
+  <div class="canvas-editor-toolbox-container">
+    <div class="canvas-container ui-droppable">
+      <svg class="canvas draggable-container">
+        <g transform="scale(1)">
+          <g transform="translate(345, 67)">
+            <rect ry="0" rx="0" x="0" y="0" fill="#fff" fill-opacity="1.0"
+              width="150" height="150" class="node-rect"></rect>
+            <foreignobject x="0" y="108" width="150" height="108">
+              <div class="node-header" width="150" height="108">
+                <p style="width: 150px;">Nuage</p>
+              </div>
+            </foreignobject>
+            <image class="node-center-img"
+              xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../dist/img/OpenShift-logo.svg"
+              height="80px" width="80px" x="35" y="20">
+            </image>
+            <text class="bundle-icon" x="6" y="22" font-family="PatternFlyIcons-webfont" font-size="20"></text>
+            <g class="connector input-connector">
+              <circle r="6" cx="0" cy="100" class="connector-circle"></circle>
+            </g>
+          </g>
+          <g transform="translate(100, 290)">
+            <rect ry="0" rx="0" x="0" y="0" fill="#fff" fill-opacity="1.0" width="150" height="150" class="node-rect"></rect>
+            <foreignobject x="0" y="108" width="150" height="108">
+              <div class="node-header" width="150" height="108">
+                <p class="ng-binding" style="width: 150px;">Vmware</p>
+              </div>
+            </foreignobject>
+            <image class="node-center-img"
+              xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../dist/img/kubernetes.svg" height="80px" width="80px" x="35" y="20">
+            </image>
+          </g>
+          <g transform="translate(350, 291)">
+            <rect
+              ry="0" rx="0" x="0" y="0" fill="#fff" fill-opacity="1.0" width="150" height="150" class="node-rect"></rect>
+            <foreignobject x="0" y="108" width="150" height="108">
+              <div class="node-header" width="150" height="108">
+                <p class="ng-binding" style="width: 150px;">NetApp</p>
+              </div>
+            </foreignobject>
+            <foreignobject class="node-center-img-icon" x="31" y="21" height="150px" width="150px">
+              <i class="pf pficon-service" style="font-size: 76px;"></i>
+            </foreignobject>
+            <g class="connector input-connector">
+              <circle r="6" cx="0" cy="75" class="connector-circle"></circle>
+            </g>
+          </g>
+          <g transform="translate(105, 67)">
+            <rect ry="0" rx="0" x="0" y="0" fill="#fff" fill-opacity="1.0" width="150" height="150" class="node-rect"></rect>
+            <foreignobject x="0" y="108" width="150" height="108">
+              <div class="node-header" width="150" height="108">
+                <p class="ng-binding" style="width: 150px;">OpenShift</p>
+              </div>
+            </foreignobject>
+            <text class="node-center-icon" font-family="fontawesome" x="41" y="90"></text>
+            <g class="connector output-connector">
+              <circle  r="6" cx="150" cy="75" class="connector-circle"></circle>
+            </g>
+          </g>
+          <g class="connection">
+            <g>
+              <path class="connection-line" d="M 255, 142
+                     C 300, 142
+                       300, 167
+                       345, 167"></path>
+              <circle r="5" cx="255" cy="142" class="connection-endpoint"></circle>
+              <circle r="5" cx="345" cy="167" class="connection-endpoint"></circle>
+            </g>
+          </g>
+          <g class="connection">
+            <g>
+              <path class="connection-line" d="M 255, 142
+                     C 302.5, 142
+                       302.5, 366
+                       350, 366"></path>
+              <circle r="5" cx="255" cy="142" class="connection-endpoint"></circle>
+              <circle r="5" cx="350" cy="366" class="connection-endpoint"></circle>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+    </div><!-- /container -->
+  </body>
+</html>
